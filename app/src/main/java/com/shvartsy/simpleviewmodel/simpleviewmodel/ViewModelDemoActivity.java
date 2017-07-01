@@ -10,7 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends LifecycleActivity {
+public class ViewModelDemoActivity extends LifecycleActivity {
 
     @BindView(R.id.click_count_text)
     protected TextView clickCountText;
@@ -20,7 +20,7 @@ public class MainActivity extends LifecycleActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_viewmodel_demo);
         ButterKnife.bind(this);
 
         viewModel = ViewModelProviders.of(this).get(ClickCounterViewModel.class);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.shvartsy.simpleviewmodel.simpleviewmodel.MainActivity">
+    tools:context="com.shvartsy.simpleviewmodel.simpleviewmodel.ViewModelDemoActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,8 +25,7 @@
         <TextView
             android:id="@+id/click_count_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

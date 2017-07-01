@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SimpleViewModel</string>
+    <string name="seconds">%d seconds elapsed</string>
 </resources>
