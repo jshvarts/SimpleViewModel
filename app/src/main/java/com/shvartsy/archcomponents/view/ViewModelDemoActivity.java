@@ -1,10 +1,13 @@
-package com.shvartsy.simpleviewmodel.simpleviewmodel;
+package com.shvartsy.archcomponents.view;
 
 import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.shvartsy.archcomponents.R;
+import com.shvartsy.archcomponents.viewmodel.ClickCounterViewModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,4 +1,4 @@
-package com.shvartsy.simpleviewmodel.simpleviewmodel;
+package com.shvartsy.archcomponents.viewmodel;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
