@@ -5,12 +5,15 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LiveDataDemoActivity extends LifecycleActivity {
+
+    private static final String LOG_TAG = LiveDataDemoActivity.class.getSimpleName();
 
     private LiveDataTimerViewModel liveDataTimerViewModel;
 
@@ -20,6 +23,7 @@ public class LiveDataDemoActivity extends LifecycleActivity {
             String newText = LiveDataDemoActivity.this.getResources().getString(
                     R.string.seconds, newValue);
             displayTimerValue(newText);
+            Log.d(LOG_TAG, "Updating timer");
         }
     };
 
@@ -33,26 +37,12 @@ public class LiveDataDemoActivity extends LifecycleActivity {
         ButterKnife.bind(this);
 
         liveDataTimerViewModel = ViewModelProviders.of(this).get(LiveDataTimerViewModel.class);
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
         subscribeElapsedTimeObserver();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        unsubscribeElapsedTimeObserver();
     }
 
     private void subscribeElapsedTimeObserver() {
         liveDataTimerViewModel.getElapsedTime().observe(this, elapsedTimeObserver);
-    }
-
-    private void unsubscribeElapsedTimeObserver() {
-        liveDataTimerViewModel.getElapsedTime().removeObserver(elapsedTimeObserver);
     }
 
     private void displayTimerValue(String value) {
