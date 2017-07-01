@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.shvartsy.archcomponents.R;
 import com.shvartsy.archcomponents.viewmodel.ClickCounterViewModel;
+import com.shvartsy.archcomponents.viewmodel.ClickLoggingInterceptor;
+import com.shvartsy.archcomponents.viewmodel.LoggingClickCounterViewModel;
 import com.shvartsy.archcomponents.viewmodel.LoggingClickCounterViewModelFactory;
 
 import butterknife.BindView;
@@ -27,7 +29,11 @@ public class LoggingViewModelDemoActivity extends LifecycleActivity {
         setContentView(R.layout.activity_viewmodel_demo);
         ButterKnife.bind(this);
 
-        viewModel = ViewModelProviders.of(this, new LoggingClickCounterViewModelFactory()).get(ClickCounterViewModel.class);
+        // the factory and its dependencies instead should be injected with DI framework like Dagger
+        LoggingClickCounterViewModelFactory factory =
+                new LoggingClickCounterViewModelFactory(new ClickLoggingInterceptor());
+
+        viewModel = ViewModelProviders.of(this, factory).get(LoggingClickCounterViewModel.class);
         displayClickCount(viewModel.getCount());
     }
 
