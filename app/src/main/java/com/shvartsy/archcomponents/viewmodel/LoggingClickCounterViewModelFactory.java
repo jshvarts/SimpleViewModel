@@ -1,8 +1,9 @@
 package com.shvartsy.archcomponents.viewmodel;
 
 import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
 
-public class LoggingClickCounterViewModelFactory extends BaseClickCounterViewModelFactory {
+public class LoggingClickCounterViewModelFactory implements ViewModelProvider.Factory {
 
     private final ClickLoggingInterceptor loggingInterceptor;
 
@@ -11,9 +12,9 @@ public class LoggingClickCounterViewModelFactory extends BaseClickCounterViewMod
     }
 
     public <T extends ViewModel> T create(Class<T> modelClass) {
-        if (modelClass.equals(LoggingClickCounterViewModel.class)) {
+        if (modelClass.isAssignableFrom(LoggingClickCounterViewModel.class)) {
             return (T) new LoggingClickCounterViewModel(loggingInterceptor);
         }
-        return (T) super.create(ClickCounterViewModel.class);
+        throw new IllegalArgumentException("Unknown ViewModel class");
     }
 }
