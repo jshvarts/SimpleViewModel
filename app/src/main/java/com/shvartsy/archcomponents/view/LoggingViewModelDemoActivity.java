@@ -1,8 +1,8 @@
 package com.shvartsy.archcomponents.view;
 
-import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoggingViewModelDemoActivity extends LifecycleActivity {
+public class LoggingViewModelDemoActivity extends AppCompatActivity {
 
     @BindView(R.id.click_count_text)
     protected TextView clickCountText;
